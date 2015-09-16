@@ -5,4 +5,12 @@ class WelcomeController < ApplicationController
   def lobby
     render text: "Hello~! controllers/welcome_controller"
   end
+
+  def index
+ 	#redirect_to "welcome/activity"
+  end
+
+  def activity
+	
+  end
 end
