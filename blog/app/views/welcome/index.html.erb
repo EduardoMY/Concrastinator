@@ -20,10 +20,13 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
 			<li>
-                        <a><span class="badge"><%= link_to "Sign Up", '#' %></span></a>
+                        <span class="badge"><%= link_to "Sign Up", signUp_path %></span>
                       </li>
 			<li>
-                        <a href="#"><span class="badge">Log In</span></a>
+                        <span class="badge"><%= link_to "Log In", logIn_path %></span>
+                      </li>
+      <li>
+                        <span class="badge"><%= link_to "Activity", activity_path %></span>
                       </li>
                     </ul>
                   	</nav>

@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
+ 
+  get 'activity' => 'welcome#activity'
 
-  get 'welcome/activity'
+  get 'signUp' => 'user#signUp'
 
-  get 'user/signUp'
+  get 'logIn' => 'user#logIn'
 
-  get 'user/logIn'
-
-  get 'welcome/index'
+  get 'index' => 'welcome#index'
 
 #  root             'static_pages#home'
 #  get 'help'    => 'static_pages#help'
