@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :user
   get 'sessions/new'
 
-  get 'activity' => 'welcome#activity'
+  get 'activity' => 'user#show'
   get 'signUp' => 'user#new'
   
   get 'index' => 'welcome#index'
