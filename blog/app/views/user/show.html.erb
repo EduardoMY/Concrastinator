@@ -7,26 +7,28 @@
             <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
               
               	<ul class="nav">
-          			<% if logged_in? %>
-          <li><%= link_to "Users", '#' %></li>
-            	</ul>
-               <br><br>
-		<ul class="nav">
-			<img src="user.png" class="img-responsive"> </img>
-		</ul>
-                <ul class="nav hidden-xs " id="lg-menu">
-                    <li class="active"><a href="#featured">Tags</a></li>
+          			<% if !logged_in? %>
+          			
+                  <li><%= link_to "User", '#' %></li>
+              	</ul>
+                  <br>
+		              <ul class="nav">
+            			  <img src="userAS.png" class="img-responsive"> </img>
+            		  </ul>
+		              <br>
+                  <ul class="nav hidden-xs " id="lg-menu">
+                    <li class="active"><a href="#featured"><h4>Tags</h4></a></li>
 
-                    <li><a href="#stories"> Priorities </a></li>
-                </ul>
-                <ul class="list-unstyled hidden-xs" id="sidebar-footer">
+                    <li><a href="#stories"> <h4>Priorities</h4> </a></li>
+                  </ul>
+                  <ul class="list-unstyled hidden-xs" id="sidebar-footer">
                     <li>
                       <%= link_to "Log out", logout_path, method: "delete" %>
                     </li>
                 </ul>
               <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-        <% end %>
+              <li><%= link_to "Log In", login_path %></li>
+              <% end %>
               	<!-- tiny only nav-->
               <ul class="nav visible-xs" id="xs-menu">
                   	<li><a href="#featured" class="text-center"><i class="glyphicon glyphicon-list-alt"></i></a></li>
@@ -77,7 +79,7 @@
                                 <div class="panel-thumbnail"><img src="/assets/example/bg_5.jpg" class="img-responsive"></div>
                                 <div class="panel-body">
                                   <p class="lead">Urbanization</p>
-                                  <p>45 Followers, 13 Posts</p>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                   
                                   <p>
                                     <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">
