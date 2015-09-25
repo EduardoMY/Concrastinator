@@ -7,7 +7,7 @@
             <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
               
               	<ul class="nav">
-          			<% if !logged_in? %>
+          			<% if logged_in? %>
           			
                   <li><%= @user.name %></li>
               	</ul>
