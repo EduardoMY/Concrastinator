@@ -2,7 +2,7 @@ Rails.application.routes.draw do
  
   root 'welcome#index'
    
-  resources :user
+  resources :users
   get 'sessions/new'
 
   get 'activity' => 'user#show'
