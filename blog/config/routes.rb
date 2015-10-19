@@ -2,7 +2,6 @@ Rails.application.routes.draw do
  
   root 'welcome#index'
    
-  resources :users
   get 'sessions/new'
 
   get 'activity' => 'users#show'
@@ -12,5 +11,8 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  
+  resources :users
+  resources :microposts,          only: [:create, :destroy]
   
 end
