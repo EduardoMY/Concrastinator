@@ -7,14 +7,12 @@
             <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
               
               	<ul class="nav">
-          			<%# if logged_in? %>
+          			<% if logged_in? %>
           			
                   <li><%= @user.name %></li>
               	</ul>
                   <br>
 		              <ul class="nav">
-                    <%# @user.id%>
-                    <%#if %>
                     <%=image_tag("user.png", :class => "img-responsive")%>
             		  </ul>
 		              <br>
@@ -28,9 +26,9 @@
                       <%= link_to "Log out", logout_path, method: "delete" %>
                     </li>
                 </ul>
-               <%# else %>
-              <!--<li><%#= link_to "Log In", login_path %></li> -->
-              <%# end %>
+               <% else %>
+              <li><%= link_to "Log In", login_path %></li> -->
+              <% end %>
               	<!-- tiny only nav-->
               <ul class="nav visible-xs" id="xs-menu">
                   	<li><a href="#featured" class="text-center"><i class="glyphicon glyphicon-list-alt"></i></a></li>
@@ -145,4 +143,3 @@
   </div>
   </div>
 </div>
-<!--MAIN ANTERIOR -->

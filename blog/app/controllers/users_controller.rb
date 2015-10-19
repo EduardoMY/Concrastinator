@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
   
   def show
-    @user = User.find(params[:id])
-    #mio
-    if session[:user_id]!=@user.id
-      render 'new'
-    else
-      @tasks = @user.tasks.paginate(page: params[:page])
+    if User.exists?(params[:id])
+      @user = User.find(params[:id])
+
+      if session[:user_id]!=@user.id
+        root :to => "welcome#index"
+      else
+        @tasks = @user.tasks.paginate(page: params[:page])
+      end
+    else root :to => "welcome#index"
     end
     
   end
