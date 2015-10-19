@@ -6,9 +6,11 @@ class UserController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    #@imgPath
     if session[:user_id] != @user.id
       render 'new'
     end
+
   end
   
   def create

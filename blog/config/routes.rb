@@ -2,11 +2,11 @@ Rails.application.routes.draw do
  
   root 'welcome#index'
    
-  resources :user
+  resources :users
   get 'sessions/new'
 
-  get 'activity' => 'user#show'
-  get 'signup' => 'user#new'
+  get 'activity' => 'users#show'
+  get 'signup' => 'users#new'
   
   get 'index' => 'welcome#index'
   get    'login'   => 'sessions#new'

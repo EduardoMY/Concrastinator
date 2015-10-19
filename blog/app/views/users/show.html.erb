@@ -7,13 +7,15 @@
             <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
               
               	<ul class="nav">
-          			<% if logged_in? %>
+          			<%# if logged_in? %>
           			
                   <li><%= @user.name %></li>
               	</ul>
                   <br>
 		              <ul class="nav">
-            			  <img src="forgeting.jpg" class="img-responsive"> </img>
+                    <%# @user.id%>
+                    <%#if %>
+                    <%=image_tag("user.png", :class => "img-responsive")%>
             		  </ul>
 		              <br>
                   <ul class="nav hidden-xs " id="lg-menu">
@@ -26,9 +28,9 @@
                       <%= link_to "Log out", logout_path, method: "delete" %>
                     </li>
                 </ul>
-              <% else %>
-              <li><%= link_to "Log In", login_path %></li>
-              <% end %>
+               <%# else %>
+              <!--<li><%#= link_to "Log In", login_path %></li> -->
+              <%# end %>
               	<!-- tiny only nav-->
               <ul class="nav visible-xs" id="xs-menu">
                   	<li><a href="#featured" class="text-center"><i class="glyphicon glyphicon-list-alt"></i></a></li>
@@ -62,7 +64,7 @@
                           </div>
                         </div>
                     </form>
-                  	</nav>
+                  	</nav>                    
                 </div>
                 <!-- /top nav -->
               
@@ -71,10 +73,24 @@
                       
                         <!-- content -->                      
                       	<div class="row">
+                        <div class="col-md-8">
+                          <% if @user.tasks.any? %>
+                            <h3>Tasks (<%= @user.tasks.count %>)</h3>
+                            <ol class="tasks">
+                              <%= render @tasks %>
+                            </ol>
+                            <%= will_paginate @tasks %>
+                          <% end %>
+                        </div>  
+                         
                           
-                         <!-- main col left --> 
-                         <div class="col-sm-12">
-                           
+            <!-- /main -->
+          
+                         </div>
+                  </div>
+              </div>
+
+
                               <div class="panel panel-default">
                                 <div class="panel-thumbnail"><img src="/assets/example/bg_5.jpg" class="img-responsive"></div>
                                 <div class="panel-body">
@@ -122,20 +138,11 @@
                            
                               <div class="panel panel-default">
                                 <div class="panel-heading"><h4>What Is Bootstrap?</h4></div>
-                               	<div class="panel-body">
-                                	Bootstrap is front end frameworkto build custom web applications that are fast, responsive &amp; intuitive. It consist of CSS and HTML for typography, forms, buttons, tables, grids, and navigation along with custom-built jQuery plug-ins and support for responsive layouts. With dozens of reusable components for navigation, pagination, labels, alerts etc..                          </div>
+                                <div class="panel-body">
+                                  Bootstrap is front end frameworkto build custom web applications that are fast, responsive &amp; intuitive. It consist of CSS and HTML for typography, forms, buttons, tables, grids, and navigation along with custom-built jQuery plug-ins and support for responsive layouts. With dozens of reusable components for navigation, pagination, labels, alerts etc..                          </div>
                               </div>
 
-                           		
-                           
-                          </div>
-                          
-            <!-- /main -->
-          
-        </div>
-    </div>
-</div>
-
   </div>
   </div>
 </div>
+<!--MAIN ANTERIOR -->
