@@ -36,4 +36,8 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
     end
+    def authenticated?(remember_token)
+      return false if remember_digest.nil?
+      BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    end
 end
