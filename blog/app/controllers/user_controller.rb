@@ -6,6 +6,9 @@ class UserController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if session[:user_id] != @user.id
+      render 'new'
+    end
   end
   
   def create
