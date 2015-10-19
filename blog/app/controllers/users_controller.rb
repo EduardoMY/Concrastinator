@@ -2,6 +2,13 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    #mio
+    if session[:user_id]!=@user.id
+      render 'new'
+    else
+      @tasks = @user.tasks.paginate(page: params[:page])
+    end
+    
   end
 
   def new
@@ -18,7 +25,11 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-
+  
+  def edit
+    @user = User.find(params[:id])
+  end
+  
   private
 
     def user_params

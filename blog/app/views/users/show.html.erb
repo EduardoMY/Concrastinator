@@ -71,8 +71,27 @@
                       
                         <!-- content -->                      
                       	<div class="row">
+                        <div class="col-md-8">
+                          <% if @user.tasks.any? %>
+                            <h3>Tasks (<%= @user.tasks.count %>)</h3>
+                            <ol class="tasks">
+                              <%= render @tasks %>
+                            </ol>
+                            <%= will_paginate @tasks %>
+                          <% end %>
+                        </div>  
+                         
                           
-                         <!-- main col left --> 
+            <!-- /main -->
+          
+        </div>
+    </div>
+</div>
+
+  </div>
+  </div>
+</div>
+<!-- MAIN ANTERIOR
                          <div class="col-sm-12">
                            
                               <div class="panel panel-default">
@@ -129,13 +148,4 @@
                            		
                            
                           </div>
-                          
-            <!-- /main -->
-          
-        </div>
-    </div>
-</div>
-
-  </div>
-  </div>
-</div>
+-->
