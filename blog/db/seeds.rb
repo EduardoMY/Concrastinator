@@ -13,7 +13,7 @@ User.create!(name:  "Example User",
              #activated: true,
              #activated_at: Time.zone.now)
 
-99.times do |n|
+10.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@debug.com"
   password = "password"
@@ -27,5 +27,10 @@ end
 users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(5)
+  task_title = Faker::Lorem.words(3)
+  priority_title = Faker::Lorem.word()
+  tag = Faker::Lorem.word()
+  rank = 1 + rand(5)
+  users.each { |user| user.priority.create!(title: priority_title, rank: rank)}
   users.each { |user| user.tasks.create!(content: content) }
 end

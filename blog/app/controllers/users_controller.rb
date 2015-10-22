@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       else
         @tasks = @user.tasks.paginate(page: params[:page])
       end
-    else root :to => "welcome#index"
+    else redirect_to :controller => 'welcome', :action => 'index' 
     end
     
   end
