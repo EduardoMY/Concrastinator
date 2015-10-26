@@ -77,6 +77,15 @@
                       
                         <!-- content -->                      
                       	<div class="row">
+                        <% if logged_in? %>
+                        <div class="row">
+                            <section class="task_form">
+                              <%= render 'shared/task_form' %>
+                            </section>
+                          </aside>
+                        </div>
+                      <% else %>
+                      <% end %>
                         <div class="col-md-8">
                           <% if @user.tasks.any? %>
                             <h3>Tasks (<%= @user.tasks.count %>)</h3>
@@ -86,6 +95,7 @@
                             <%= will_paginate @tasks %>
                           <% end %>
                         </div>
+
           
                          </div>
                   </div>
