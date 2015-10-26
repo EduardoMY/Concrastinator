@@ -17,9 +17,15 @@
             		  </ul>
 		              <br>
                   <ul class="nav hidden-xs " id="lg-menu">
-                    <li class="active"><a href="#featured"><h4>Tags</h4></a></li>
-
-                    <li><a href="#stories"> <h4>Priorities</h4> </a></li>
+                    <li class="active"><h4>Tags</h4></li>
+                      <section class="tag_form">
+                        <%= render 'shared/tag_form' %>
+                      </section>
+                    <li><h4>Priorities</h4>
+                      <section class="priority_form">
+                        <%= render 'shared/priority_form' %>
+                      </section>
+                    </li>
                   </ul>
                   <ul class="list-unstyled hidden-xs" id="sidebar-footer">
                     <li>
@@ -64,7 +70,7 @@
                         </div>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                      <button type="button" class="btn btn-default" onclick="alert('YOu are gay')">
+                      <button type="button" class="btn btn-default" onclick="alert('Pinned...')">
                         <span class="glyphicon glyphicon-pushpin" aria-hidden="true">Pin </span> 
                       </button>
                     </ul>

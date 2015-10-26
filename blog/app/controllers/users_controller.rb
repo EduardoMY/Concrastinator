@@ -23,6 +23,10 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Welcome to the Sample App!"
+      @tag = Tag.new(:title => "Assignment", :user_id => @user.id)
+      @tag.save
+      @priority = Priority.new(:title => "Normal", :rank => "3", :user_id => @user.id)
+      @priority.save
       redirect_to @user
     else
       render 'new'
