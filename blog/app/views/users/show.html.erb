@@ -3,7 +3,7 @@
         <div class="row row-offcanvas row-offcanvas-left">
                       
           
-            <!-- sidebar -->
+            <!-- sidebar Left-->
             <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
               
               	<ul class="nav">
@@ -41,7 +41,7 @@
           
             <!-- main right col -->
 
-            <div class="column col-sm-10 col-xs-11" id="main">
+            <div class="column col-sm-9 col-xs-11" id="main">
                 
                 <!-- top nav -->
               	<div class="navbar navbar-blue navbar-static-top">  
@@ -63,6 +63,11 @@
                           </div>
                         </div>
                     </form>
+                    <ul class="nav navbar-nav navbar-right">
+                      <button type="button" class="btn btn-default" onclick="alert('YOu are gay')">
+                        <span class="glyphicon glyphicon-pushpin" aria-hidden="true">Pin </span> 
+                      </button>
+                    </ul>
                   	</nav>                    
                 </div>
                 <!-- /top nav -->
@@ -80,15 +85,22 @@
                             </ol>
                             <%= will_paginate @tasks %>
                           <% end %>
-                        </div>  
-                         
-                          
-            <!-- /main -->
+                        </div>
           
                          </div>
                   </div>
               </div>
-  </div>
+      </div>
+      <!-- MAIN -->
+
+              <!-- sidebar Rigth-->
+            <div class="column col-sm-1 col-xs-0 sidebar-offcanvas" id="sidebar">
+             <ul class="nav hidden-xs">
+              <h4> Suggestions </h4>
+              </ul>
+            </div>
+            <!-- /sidebar -->
+
   </div>
 </div>
 </div>
