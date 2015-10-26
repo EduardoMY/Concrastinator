@@ -7,5 +7,6 @@ class Task < ActiveRecord::Base
   validates :user_id, presence: true
   validates :tag_id, presence: true
   validates :priority_id, presence: true
+  validates :due_date, presence: true
   validates :title, presence: true, length: { maximum: 50 }
 end

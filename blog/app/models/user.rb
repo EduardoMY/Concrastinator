@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
         self.remember_token = User.new_token
         update_attribute(:remember_digest, User.digest(remember_token))
       end
+
+      def feed
+        Task.where("user_id = ?", id)
+      end
     
       # Returns true if the given token matches the digest.
       def authenticated?(remember_token)
