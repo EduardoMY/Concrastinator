@@ -3,9 +3,9 @@
   <div class="field">
   	<%= f.text_area :title, placeholder: "New task..." %>
     <%= f.text_area :content, placeholder: "Description..." %>
-    <%= f.collection_select(:priority_id, Priority.all, :id, :title, :prompt => 'Priority...') %>
-    <%= f.collection_select(:tag_id, Tag.all, :id, :title, :prompt => 'Tag...') %>
-    <%= f.text_area :due_date, placeholder: "[2015-10-26 16:00:00]" %>
+    <%= f.collection_select(:priority_id, Priority.where(:user_id => current_user.id), :id, :title, :prompt => 'Priority...') %>
+    <%= f.collection_select(:tag_id, Tag.where(:user_id => current_user.id), :id, :title, :prompt => 'Tag...') %>
+    <%= f.datetime_select :due_date, :ampm => true, :default => Time.now %>
   </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
