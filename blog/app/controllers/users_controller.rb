@@ -5,7 +5,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
 
       if session[:user_id]!=@user.id
-        root :to => "welcome#index"
+        redirect_to :controller => 'welcome', :action => 'index' 
       else
         @tasks = @user.tasks.paginate(page: params[:page])
       end
