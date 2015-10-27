@@ -2,7 +2,7 @@ class TagsController < ApplicationController
 	before_action :logged_in_user, only: [:create, :destroy]
 
   def create
-    @tag = current_user.priorities.build(tag_params)
+    @tag = current_user.tags.build(tag_params)
     if @tag.save
       flash[:success] = "Tag created!"
     else

@@ -3,6 +3,8 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.build(task_params)
+    @task.tag_id = params[:tag_id].blank? or Tag.where(:user_id => current_user.id)
+    @task.priority_id = params[:priority_id].blank? or Priority.where(:user_id => current_user.id)
     if @task.save
       flash[:success] = "Task created!"
     else
