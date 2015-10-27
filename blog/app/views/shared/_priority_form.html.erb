@@ -2,7 +2,7 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
   	<%= f.text_area :title, placeholder: "New priority..." %>
-    <%= f.number_field :rank, in: 1..5, step: 1, placeholder: "Rank..." %>
+    <%= f.number_field :rank, in: 1..5, step: 1, placeholder: "1"%>
   </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>

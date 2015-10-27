@@ -1,4 +1,4 @@
-<li id="task-<%= task.id %>" style="border-style: solid;border-color:#3B5999;padding-left:1em;padding-top:1em">
+<li id="task-<%= task.id %>" style="background-color:white;border-style:solid;border-color:#3B5999;padding-left:1em;padding-top:1em">
   <span style="font-weight:bold;font-size:18px"><%= task.title %></span>
   <span style="text-align:left">
   Due in: <%= distance_of_time_in_words_to_now(task.due_date.to_date) %>.

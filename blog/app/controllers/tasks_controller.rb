@@ -3,8 +3,6 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.build(task_params)
-    @task.tag_id = params[:tag_id].blank? or Tag.where(:user_id => current_user.id)
-    @task.priority_id = params[:priority_id].blank? or Priority.where(:user_id => current_user.id)
     if @task.save
       flash[:success] = "Task created!"
     else
@@ -25,6 +23,6 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      params.require(:task).permit(:title, :content, :tag_id, :priority_id, :due_date)
+      params.require(:task).permit(:title, :content, :due_date, :priority_id, :tag_id)
     end
 end

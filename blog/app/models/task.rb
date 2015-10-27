@@ -3,7 +3,7 @@ class Task < ActiveRecord::Base
   belongs_to :tag
   belongs_to :user
   has_many :task_tags
-  default_scope -> { order(created_at: :desc) }
+  default_scope -> { joins(:priority).order('due_date, priorities.rank DESC') }
   validates :user_id, presence: true
   validates :tag_id, presence: true
   validates :priority_id, presence: true
