@@ -12,8 +12,10 @@ class Task < ActiveRecord::Base
   validate :not_past_date
 
 	def not_past_date
-	  if self.due_date.past?
+	  if self.due_date.to_formatted_s(:db) < Time.now.to_formatted_s(:db)
+
 	    errors.add(:due_date, 'not in past')
 	  end
 	end
+
 end

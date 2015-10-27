@@ -1,7 +1,9 @@
-<li id="task-<%= task.id %>" style="background-color:white;border-style:solid;border-color:#3B5999;padding-left:1em;padding-top:1em">
+
+  <li id="task-<%= task.id %>" class="<%=task.due_date.to_formatted_s(:db) < Time.now.to_formatted_s(:db) ? 'pastTask' : 'activeTask'%>">
   <span style="font-weight:bold;font-size:18px"><%= task.title %></span>
   <span style="text-align:left">
-  Due in: <%= distance_of_time_in_words_to_now(task.due_date.to_date) %>.
+  <!-- task.due_date.to_date-->
+  Due in: <%= time_ago_in_words(task.due_date.to_formatted_s(:db)) %>.
   </span>
   <br>
   <span style="padding-left:5px"><%= task.content %></span>
@@ -11,7 +13,27 @@
   Priority:</span><span> <%= task.priority.title %></span>
   <span style="font-weight:bold;padding-left:5em">
   Tag: </span><span><%= task.tag.title %></span>
+  
   <span >
 
   </span>
+
 </li>
+
+<style>
+.activeTask{
+  background-color:white;
+  border-style:solid;
+  border-color:#3B5999;
+  padding-left:1em;
+  padding-top:1em
+}
+.pastTask{
+
+  background-color:gray;
+  border-style:solid;
+  border-color:#3B5999;
+  padding-left:1em;
+  padding-top:1em
+}
+</style>

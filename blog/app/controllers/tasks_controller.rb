@@ -5,10 +5,10 @@ class TasksController < ApplicationController
     @task = current_user.tasks.build(task_params)
     if @task.save
       flash[:success] = "Task created!"
-    else
     end
     redirect_to(current_user)
   end
+  
   def logged_in_user
       unless logged_in?
         store_location

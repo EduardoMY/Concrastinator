@@ -47,7 +47,7 @@
           
             <!-- main right col -->
 
-            <div class="column col-sm-9 col-xs-11" id="main">
+            <div class="column col-sm-10 col-xs-11" id="main">
                 
                 <!-- top nav -->
               	<div class="navbar navbar-blue navbar-static-top">  
@@ -84,13 +84,13 @@
                         <!-- content -->                      
                       	<div class="row">
                         <% if logged_in? %>
-                        <div class="row">
+                          <div class="row">
                             <section class="task_form">
                               <%= render 'shared/task_form' %>
                             </section>
                           </aside>
                         </div>
-                      <% else %>
+                      <%# else %>
                       <% end %>
 
                         <div class="col-md-8">
@@ -98,26 +98,19 @@
                             <h3>Tasks (<%= @user.tasks.count %>)</h3>
                             <ol class="tasks">
                               <%= render @tasks %>
-                              </div>
                             </ol><br>
                             <%= will_paginate @tasks %>
                           <% end %>
                         </div>
-
-          
-                         </div>
+                        </div>
                   </div>
+              </div>
+              </div>
+              </div>
+              </div>
               </div>
       </div>
       <!-- MAIN -->
-
-              <!-- sidebar Rigth-->
-            <div class="column col-sm-1 col-xs-0 sidebar-offcanvas" id="sidebar">
-             <ul class="nav hidden-xs">
-              <h4> Suggestions </h4>
-              </ul>
-            </div>
-            <!-- /sidebar -->
 
   </div>
 </div>
