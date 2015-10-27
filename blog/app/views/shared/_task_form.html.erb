@@ -1,12 +1,14 @@
+<div style="border-style: solid;rgba(129, 167, 249, 0.63);border-color:black;padding-left:1em;padding-top:1em">
 <%= form_for(Task.new) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
   	<%= f.text_area :title, placeholder: "New task..." %>
     <%= f.text_area :content, placeholder: "Description..." %>
+    <%= f.datetime_select :due_date, :ampm => true, :default => Time.now %>
     <br>
     <%= f.collection_select(:priority_id, Priority.where(:user_id => current_user.id), :id, :title, :prompt => 'Priority...') %>
     <%= f.collection_select(:tag_id, Tag.where(:user_id => current_user.id), :id, :title, :prompt => 'Tag...') %>
-    <%= f.datetime_select :due_date, :ampm => true, :default => Time.now %>
   </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
+</div>

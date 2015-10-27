@@ -1,12 +1,17 @@
-<li id="task-<%= task.id %>">
-  <span class="user"><%= task.title %></span>
-  <span class="content"><%= task.content %></span>
-  <span class="timestamp">
-  Due: <%= (task.due_date).to_date %>.
+<li id="task-<%= task.id %>" style="border-style: solid;border-color:#3B5999;padding-left:1em;padding-top:1em">
+  <span style="font-weight:bold;font-size:18px"><%= task.title %></span>
+  <span style="text-align:left">
+  Due in: <%= distance_of_time_in_words_to_now(task.due_date.to_date) %>.
   </span>
+  <br>
+  <span style="padding-left:5px"><%= task.content %></span>
   <!-- Should be task_tag-->
-  <span class="priority">
-  <%= task.priority.title %></span>
-  <span class="tag">
-  <%= task.tag.title %></span>
+  <br>
+  <span style="font-weight:bold">
+  Priority:</span><span> <%= task.priority.title %></span>
+  <span style="font-weight:bold;padding-left:5em">
+  Tag: </span><span><%= task.tag.title %></span>
+  <span >
+
+  </span>
 </li>
