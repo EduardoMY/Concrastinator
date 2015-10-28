@@ -7,8 +7,6 @@
             <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
               
               	<ul class="nav">
-          			<% if logged_in? %>
-          			
                   <li><h1><%= @user.name %></h1></li>
               	</ul>
                   <br>
@@ -17,26 +15,27 @@
             		  </ul>
 		              <br>
                   <ul class="nav hidden-xs " id="lg-menu">
-                    <li class="active"><h4>Tags</h4></li>
+                    <li class="active">
+                      <h4>Tags</h4>
+                      </li>
                       <section class="tag_form">
                         <%= render 'shared/tag_form' %>
                       </section>
-                    <li><h4>Priorities</h4> </li>
-                  <ul class="list-unstyled hidden-xs" id="sidebar-footer">
+                    <li>
+                      <h4>Priorities</h4> 
+                    </li>
                     <li>
                      <section class="priority_form">
                         <%= render 'shared/priority_form' %>
                       </section>
                     </li>
-                    <li>
-                      <align="left"><%= link_to "Log out", logout_path, method: "delete" %>
+                   <!-- <li>
+                      <align="left"><%#= link_to "Log out", logout_path, method: "delete" %>
                     </li>
-
+                  -->
                 </ul>
-               <% else %>
-              <li><%= link_to "Log In", login_path %></li> -->
-              <% end %>
-                  </ul>
+
+              </ul>
               	<!-- tiny only nav-->
               <ul class="nav visible-xs" id="xs-menu">
                   	<li><a href="#featured" class="text-center"><i class="glyphicon glyphicon-list-alt"></i></a></li>
@@ -72,9 +71,16 @@
                         </div>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
+                      <!--<li>
                       <button type="button" class="btn btn-default" onclick="alert('Pinned...')">
                         <span class="glyphicon glyphicon-pushpin" aria-hidden="true">Pin </span> 
                       </button>
+                       </li> -->
+                       <li>
+                          <span class="btn btn-default navbar-btn">
+                            <align="left"><%= link_to "Log out", logout_path, method: "delete" %>
+                          </span>
+                       </li> 
                     </ul>
                   	</nav>                    
                 </div>
@@ -87,7 +93,7 @@
                       	<div class="row">
                         <% if logged_in? %>
                           <div class="row">
-                            <section class="task_form">
+                            <section class="row">
                               <%= render 'shared/task_form' %>
                             </section>
                           </aside>
