@@ -21,20 +21,22 @@
                       <section class="tag_form">
                         <%= render 'shared/tag_form' %>
                       </section>
-                    <li><h4>Priorities</h4>
-                      <section class="priority_form">
+                    <li><h4>Priorities</h4> </li>
+                  <ul class="list-unstyled hidden-xs" id="sidebar-footer">
+                    <li>
+                     <section class="priority_form">
                         <%= render 'shared/priority_form' %>
                       </section>
                     </li>
-                  </ul>
-                  <ul class="list-unstyled hidden-xs" id="sidebar-footer">
                     <li>
-                      <%= link_to "Log out", logout_path, method: "delete" %>
+                      <align="left"><%= link_to "Log out", logout_path, method: "delete" %>
                     </li>
+
                 </ul>
                <% else %>
               <li><%= link_to "Log In", login_path %></li> -->
               <% end %>
+                  </ul>
               	<!-- tiny only nav-->
               <ul class="nav visible-xs" id="xs-menu">
                   	<li><a href="#featured" class="text-center"><i class="glyphicon glyphicon-list-alt"></i></a></li>
