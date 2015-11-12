@@ -7,7 +7,9 @@ class UsersController < ApplicationController
       if session[:user_id]!=@user.id
         redirect_to :controller => 'welcome', :action => 'index' 
       else
-        @tasks = @user.tasks.paginate(page: params[:page])
+        #@task=
+        @tasksA = @user.tasks.paginate(page: params[:page]).where('due_date > ?', Time.now.to_formatted_s(:db))
+        @tasksP = @user.tasks.paginate(page: params[:page]).where('due_date < ?', Time.now.to_formatted_s(:db))
       end
     else redirect_to :controller => 'welcome', :action => 'index' 
     end
@@ -43,8 +45,10 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
     end
+
     def authenticated?(remember_token)
       return false if remember_digest.nil?
       BCrypt::Password.new(remember_digest).is_password?(remember_token)
     end
+
 end

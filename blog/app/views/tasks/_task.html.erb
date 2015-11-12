@@ -1,39 +1,21 @@
+<% if true%>
 
-  <li id="task-<%= task.id %>" class="<%=task.due_date.to_formatted_s(:db) < Time.now.to_formatted_s(:db) ? 'pastTask' : 'activeTask'%>">
-  <span style="font-weight:bold;font-size:18px"><%= task.title %></span>
-  <span style="text-align:left">
-  <!-- task.due_date.to_date-->
-  Due in: <%= time_ago_in_words(task.due_date.to_formatted_s(:db)) %>.
-  </span>
-  <br>
-  <span style="padding-left:5px"><%= task.content %></span>
-  <!-- Should be task_tag-->
-  <br>
-  <span style="font-weight:bold">
-  Priority:</span><span> <%= task.priority.title %></span>
-  <span style="font-weight:bold;padding-left:5em">
-  Tag: </span><span><%= task.tag.title %></span>
-  
-  <span >
+<%if task.due_date.to_formatted_s(:db) < Time.now.to_formatted_s(:db) %>
+  <% isExpired=true%>
+  <%else %>
+    <%isExpired=false%>
+    <%end%>
+<div class="panel panel-default">
+  <div class="panel-heading" style="<%= isExpired ? 'background-color:#C8C8C8;' : ''%>"><h4><strong><%= task.title %></strong></h4>
+    <strong><%=task.due_date.to_formatted_s(:db) < Time.now.to_formatted_s(:db) ? 'Expired: ' : 'Due in:' %> </strong> 
+    <%= time_ago_in_words(task.due_date.to_formatted_s(:db)) %>
+  </div>
+  <div class="panel-body" style="<%= isExpired ? 'background-color:#C8C8C8;' : ''%>">
+    <%= task.content %>
+  </div>
+  <div class="panel-footer" style="<%= isExpired ? 'background-color:#C8C8C8;' : ''%>">
+    <strong>Priority:</strong> <%= task.priority.title %>, <strong>Tags:</strong> <%= task.tag.title %>. 
+  </div>
+</div>
 
-  </span>
-
-</li>
-
-<style>
-.activeTask{
-  background-color:white;
-  border-style:solid;
-  border-color:#3B5999;
-  padding-left:1em;
-  padding-top:1em
-}
-.pastTask{
-
-  background-color:gray;
-  border-style:solid;
-  border-color:#3B5999;
-  padding-left:1em;
-  padding-top:1em
-}
-</style>
+<%end%>
