@@ -1,5 +1,3 @@
-<% if true%>
-
 <%if task.due_date.to_formatted_s(:db) < Time.now.to_formatted_s(:db) %>
   <% isExpired=true%>
   <%else %>
@@ -7,7 +5,7 @@
     <%end%>
 <div class="panel panel-default">
   <div class="panel-heading" style="<%= isExpired ? 'background-color:#C8C8C8;' : ''%>"><h4><strong><%= task.title %></strong></h4>
-    <strong><%=task.due_date.to_formatted_s(:db) < Time.now.to_formatted_s(:db) ? 'Expired: ' : 'Due in:' %> </strong> 
+    <strong><%=isExpired ? 'Expired: ' : 'Due in:' %> </strong> 
     <%= time_ago_in_words(task.due_date.to_formatted_s(:db)) %>
   </div>
   <div class="panel-body" style="<%= isExpired ? 'background-color:#C8C8C8;' : ''%>">
@@ -17,5 +15,3 @@
     <strong>Priority:</strong> <%= task.priority.title %>, <strong>Tags:</strong> <%= task.tag.title %>. 
   </div>
 </div>
-
-<%end%>

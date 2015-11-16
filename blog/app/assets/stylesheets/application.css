@@ -12,5 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ * require bootstrap
  *= require bootstrap.min
+ *= require jquery-ui
+*= require bootstrap-datetimepicker
  */

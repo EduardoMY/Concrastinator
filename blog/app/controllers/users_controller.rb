@@ -6,14 +6,20 @@ class UsersController < ApplicationController
 
       if session[:user_id]!=@user.id
         redirect_to :controller => 'welcome', :action => 'index' 
+      elsif params[:q]
+        @tasksA= @user.tasks.paginate(page: params[:page]).search(params[:q]).where('due_date > ?', Time.now.to_formatted_s(:db))
+        @tasksP= nil
       else
-        #@task=
-        @tasksA = @user.tasks.paginate(page: params[:page]).where('due_date > ?', Time.now.to_formatted_s(:db))
-        @tasksP = @user.tasks.paginate(page: params[:page]).where('due_date < ?', Time.now.to_formatted_s(:db))
+        @tasksA = @user.tasks.all.paginate(page: params[:page]).where('due_date > ?', Time.now.to_formatted_s(:db))
+        @tasksP = @user.tasks.all.paginate(page: params[:page]).where('due_date < ?', Time.now.to_formatted_s(:db))
       end
     else redirect_to :controller => 'welcome', :action => 'index' 
     end
     
+  end
+  
+  def index
+    return show
   end
   
   def new

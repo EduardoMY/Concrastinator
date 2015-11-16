@@ -12,7 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require jquery-ui
+//= require moment
+//= require bootstrap-datetimepicker
+// require bootstrap
 //= require turbolinks
 //= require_tree .
 //= require bootstrap.min
