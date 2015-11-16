@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   
+  get '/listing/results' => 'listing#results', :as => 'listing_button'
+
   resources :users
   resources :tasks,           only: [:create, :destroy]
   resources :tags,            only: [:create, :destroy]

@@ -21,6 +21,10 @@ gem 'coffee-rails', '~> 4.1.0'
 
 #gem 'will_paginate',           '3.0.7'
 
+gem 'nokogiri'
+
+gem 'mechanize'
+
 gem 'bootstrap-will_paginate', '0.0.10'
 
 gem 'omniauth-facebook', '~> 1.4.1'
