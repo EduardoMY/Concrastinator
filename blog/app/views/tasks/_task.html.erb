@@ -4,9 +4,26 @@
     <%isExpired=false%>
     <%end%>
 <div class="panel panel-default">
-  <div class="panel-heading" style="<%= isExpired ? 'background-color:#C8C8C8;' : ''%>"><h4><strong><%= task.title %></strong></h4>
-    <strong><%=isExpired ? 'Expired: ' : 'Due in:' %> </strong> 
-    <%= time_ago_in_words(task.due_date.to_formatted_s(:db)) %>
+  <div class="panel-heading" style="<%= isExpired ? 'background-color:#C8C8C8;' : ''%>">
+    <% if !isExpired%>
+    <table>
+      <tr>
+        <td>
+          <%= link_to 'Edit', edit_task_path(task.id), remote: true, :class => 'btn btn-sm btn-info' %>
+        </td>
+        <td>
+          <h4><strong><%= task.title %></strong></h4> <strong><%=isExpired ? 'Expired: ' : 'Due in:' %> </strong> 
+            <%= time_ago_in_words(task.due_date.to_formatted_s(:db)) %>
+        </td>
+        <td>
+            <%= link_to 'Delete', task_path(task), :method => :delete, data: {confirm: "Delete Task "}, :class => 'btn btn-sm btn-danger'%> 
+        </td>
+      </tr>
+    </table>
+    <%else %>
+      <h4><strong><%= task.title %></strong></h4> <strong><%=isExpired ? 'Expired: ' : 'Due in:' %> </strong> 
+          <%= time_ago_in_words(task.due_date.to_formatted_s(:db)) %>
+    <%end%>
   </div>
   <div class="panel-body" style="<%= isExpired ? 'background-color:#C8C8C8;' : ''%>">
     <%= task.content %>

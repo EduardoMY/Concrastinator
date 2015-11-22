@@ -1,19 +1,23 @@
-<div style="border-style: solid;rgba(129, 167, 249, 0.63);border-color:black;padding-left:1em;padding-top:1em;padding-bottom:1em;">
+<div class="panel panel-default">
 <%= form_for(Task.new) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
+  <div class="panel-heading">
+  Hola
+  </div>
+  <div class="panel-body">
   	<%= f.text_area :title, placeholder: "New task..." %>
     <%= f.text_area :content, placeholder: "Description..." %>
-    <%#= f.datetime_select :due_date, :ampm => true, :order => [:day, :month, :year], :default => Time.now.beginning_of_hour().advance(:hours => 1), :discard_minute => true %>
-    <%= f.text_field :due_date, class: "show_calendar" %>
     <br>
-    <div style="margin-top:0.5em;font-weight:bold">
-    Priority: 
+    <%= f.datetime_select :due_date, :ampm => true, :order => [:day, :month, :year], :default => Time.now.beginning_of_hour().advance(:hours => 1), :discard_minute => true %>
+    <%#= f.text_field :due_date, class: "show_calendar" %>
+    <br>
+    <strong>Priority: </strong>
     <%= f.collection_select(:priority_id, Priority.where(:user_id => current_user.id), :id, :title) %>
-    Tag: 
+    <strong>Tag:</strong> 
     <%= f.collection_select(:tag_id, Tag.where(:user_id => current_user.id), :id, :title) %>
-    </div>
   </div>
+  <div class="panel-footer">
   <%= f.submit "Post", class: "btn btn-primary" %>
+  </div>
 <% end %>
 </div>

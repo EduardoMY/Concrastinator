@@ -16,15 +16,8 @@
                       <h4>Tags</h4>
                       </li>
                       <section class="tag_form">
-                      <!--
-                        <ul>
-                        <%#for @user.tasks.tag do |t|%>
-                        <li> <%#=t.title %></li>
-                        <%#end%>
-                        </ul>
-                        -->
                         <%= render 'shared/tag_form' %>
-                      </section>
+                      </section> 
                     <li>
                       <h4>Priorities</h4> 
                     </li>
@@ -33,26 +26,23 @@
                         <%= render 'shared/priority_form' %>
                       </section>
                     </li>
-                   <!-- <li>
-                      <align="left"><%#= link_to "Log out", logout_path, method: "delete" %>
-                    </li>
-                  -->
                 </ul>
 
               </ul>
               	<!-- tiny only nav-->
+                <!--
               <ul class="nav visible-xs" id="xs-menu">
                   	<li><a href="#featured" class="text-center"><i class="glyphicon glyphicon-list-alt"></i></a></li>
                     <li><a href="#stories" class="text-center"><i class="glyphicon glyphicon-list"></i></a></li>
                   	<li><a href="#" class="text-center"><i class="glyphicon glyphicon-paperclip"></i></a></li>
                 </ul>
-              
+              -->
             </div>
             <!-- /sidebar -->
           
             <!-- main right col -->
 
-            <div class="column col-sm-10 col-xs-11" id="main">
+            <div class="column col-sm-9 col-xs-11" id="main">
                 
                 <!-- top nav -->
               	<div class="navbar navbar-blue navbar-static-top">  
@@ -60,8 +50,8 @@
                       <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle</span>
                         <span class="icon-bar"></span>
-          				<span class="icon-bar"></span>
-          				<span class="icon-bar"></span>
+          				      <span class="icon-bar"></span>
+          				      <span class="icon-bar"></span>
                       </button>
                       <a href="/" class="navbar-brand logo">C</a>
                   	</div>
@@ -87,21 +77,16 @@
                 <!-- /top nav -->
               
                 <div class="padding">
-                    <div class="full col-sm-12">
-                      
-                        <!-- content -->                      
-                      	<div class="row">
-                        <% if logged_in? %>
-                          <div class="row">
-                            <section class="row">
-                              <%= render 'shared/task_form' %>
-                            </section>
-                          </aside>
-                        </div>
-                      <%# else %>
-                      <% end %>
+                    <div class="full col-md-12">
 
-                        <div class="col-md-8">
+                        <!-- content -->                      
+                        <%# if logged_in? %>
+                          <div class="row">
+                              <%= render 'shared/task_form' %>
+                          </div>
+                        <%# end %>
+
+                        <div class="col-md-12">
                           <% if @user.tasks.any? %>
                             <h3>Tasks (<%= @tasksA.count %>)</h3>
                             <ol class="tasks">
@@ -109,17 +94,21 @@
                             </ol>
                             <br>
                             <%if @tasksP != nil %>
-                            <ol class="tasks">
-                              <%= render @tasksP %>
-                            </ol>
-                            <br>
+                              <ol class="tasks">
+                                <%= render @tasksP %>
+                              </ol>
+                              <br>
                             <%end%>
                             <%= will_paginate @tasksA %>
                           <% end %>
                         </div>
-                        </div>
                   </div>
               </div>
+
+              <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
+               
+              </div>
+
               </div>
               </div>
               </div>

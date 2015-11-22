@@ -21,24 +21,29 @@ class UsersController < ApplicationController
   def index
     return show
   end
+
   
   def new
-    @user = User.new
+    if current_user
+      redirect_to user_path(current_user)
+    else
+      @user = User.new
+    end
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      log_in @user
-      flash[:success] = "Welcome to the Sample App!"
-      @tag = Tag.new(:title => "Assignment", :user_id => @user.id)
-      @tag.save
-      @priority = Priority.new(:title => "Normal", :rank => "3", :user_id => @user.id)
-      @priority.save
-      redirect_to @user
-    else
-      render 'new'
-    end
+      @user = User.new(user_params)
+      if @user.save
+        log_in @user
+        flash[:success] = "Welcome to the Sample App!"
+        @tag = Tag.new(:title => "Assignment", :user_id => @user.id)
+        @tag.save
+        @priority = Priority.new(:title => "Normal", :rank => "3", :user_id => @user.id)
+        @priority.save
+        redirect_to @user
+      else
+        render 'new'
+      end
   end
   
   def edit
