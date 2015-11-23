@@ -3,14 +3,14 @@
   <%else %>
     <%isExpired=false%>
     <%end%>
-<div class="panel panel-default">
+<div id="task_<%= task.id %>" class="panel panel-default">
   <div class="panel-heading" style="<%= isExpired ? 'background-color:#C8C8C8;' : ''%>">
     <% if !isExpired%>
     <table>
       <tr>
         <td>
-          <%= link_to 'Edit', edit_task_path(task.id), remote: true, :class => 'btn btn-sm btn-info' %>
-        </td>
+          <%= link_to 'Edit', edit_task_path(task.id), remote:true, :class => 'btn btn-sm btn-info' %>
+        </td> <!-- edit_task_path(task.id) , remote: true-->
         <td>
           <h4><strong><%= task.title %></strong></h4> <strong><%=isExpired ? 'Expired: ' : 'Due in:' %> </strong> 
             <%= time_ago_in_words(task.due_date.to_formatted_s(:db)) %>

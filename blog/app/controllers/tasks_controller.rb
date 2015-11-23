@@ -1,6 +1,11 @@
 class TasksController < ApplicationController
+
 	before_action :logged_in_user, only: [:create, :destroy]
-  before_action :set_task, only: [:destroy]
+  before_action :set_task, only: [:destroy, :update, :edit]
+
+  def show
+   
+  end
 
   def create
     @task = current_user.tasks.build(task_params)
@@ -10,8 +15,18 @@ class TasksController < ApplicationController
     redirect_to(current_user)
   end
 
+  def edit
+  end
+
   def update
-    
+     respond_to do |format|
+      if @task.update_attributes(task_params)
+        format.json { head :no_content }
+        format.js
+      else 
+         format.json { render json: @customer.errors.full_messages, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
@@ -30,10 +45,13 @@ class TasksController < ApplicationController
   end
 
   private
+    
     def set_task
       @task=Task.find(params[:id])
     end
+
     def task_params
       params.require(:task).permit(:title, :content, :due_date, :priority_id, :tag_id)
     end
+
 end
