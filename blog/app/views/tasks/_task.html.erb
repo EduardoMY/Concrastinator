@@ -18,6 +18,9 @@
         <td>
             <%= link_to 'Delete', task_path(task), :method => :delete, data: {confirm: "Delete Task "}, :class => 'btn btn-sm btn-danger'%> 
         </td>
+        <td>
+          <%= link_to 'Suggestions','#example' , :class => 'btn btn-sm btn-default'%>
+        </td>
       </tr>
     </table>
     <%else %>
