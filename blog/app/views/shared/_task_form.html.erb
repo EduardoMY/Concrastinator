@@ -4,7 +4,7 @@
   <div class="field">
   	<%= f.text_area :title, placeholder: "New task..." %>
     <%= f.text_area :content, placeholder: "Description..." %>
-    <%#= f.datetime_select :due_date, :ampm => true, :order => [:day, :month, :year], :default => Time.now.beginning_of_hour().advance(:hours => 1), :discard_minute => true %>
+    <%= f.datetime_select :due_date, :ampm => true, :order => [:day, :month, :year], :default => Time.now.beginning_of_hour().advance(:hours => 1), :discard_minute => true %>
     <%= f.text_field :due_date, class: "show_calendar" %>
     <br>
     <div style="margin-top:0.5em;font-weight:bold">

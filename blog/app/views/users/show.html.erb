@@ -79,19 +79,7 @@
                             <align="left"><%= link_to "Log out", logout_path, method: "delete" %>
                           </span>
 
-                          <script>
-                  (function() {
-                    var cx = '015114410747510765940:ddkdvmhun74';
-                    var gcse = document.createElement('script');
-                    gcse.type = 'text/javascript';
-                    gcse.async = true;
-                    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-                        '//cse.google.com/cse.js?cx=' + cx;
-                    var s = document.getElementsByTagName('script')[0];
-                    s.parentNode.insertBefore(gcse, s);
-                  })();
-                </script>
-                <gcse:search></gcse:search>
+
                        </li> 
                     </ul>
                   	</nav>                    
@@ -113,7 +101,19 @@
                         </div>
                       <%# else %>
                       <% end %>
-
+                      <script>
+                        (function() {
+                          var cx = '015114410747510765940:ddkdvmhun74';
+                          var gcse = document.createElement('script');
+                          gcse.type = 'text/javascript';
+                          gcse.async = true;
+                          gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                              '//cse.google.com/cse.js?cx=' + cx;
+                          var s = document.getElementsByTagName('script')[0];
+                          s.parentNode.insertBefore(gcse, s);
+                        })();
+                      </script>
+                      <gcse:search></gcse:search>
                         <div class="col-md-8">
                           <% if @user.tasks.any? %>
                             <h3>Tasks (<%= @tasksA.count %>)</h3>
