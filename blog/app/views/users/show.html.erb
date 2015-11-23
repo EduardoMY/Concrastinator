@@ -19,7 +19,9 @@
                         <%= render 'shared/tag_form' %>
                       </section> 
                     <li>
-                      <h4>Priorities</h4> 
+                      <h4>Priorities</h4>
+                      <%#for do |p|%>
+                      <%#end%> 
                     </li>
                     <li>
                      <section class="priority_form">
@@ -85,7 +87,7 @@
                               <%= render 'shared/task_form' %>
                           </div>
                         <%# end %>
-
+                          <%= render 'shared/edit_task_form'%>
                         <div class="col-md-12">
                           <% if @user.tasks.any? %>
                             <h3>Tasks (<%= @tasksA.count %>)</h3>
@@ -113,6 +115,7 @@
               </div>
               </div>
               </div>
+              <%=render 'tasks/edit_task_modal'%>
       </div>
       <!-- MAIN -->
 

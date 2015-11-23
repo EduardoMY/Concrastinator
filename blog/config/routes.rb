@@ -9,12 +9,12 @@ Rails.application.routes.draw do
   
   get 'index' => 'welcome#index'
   get    'login'   => 'sessions#new'
+  get   '/tasks/:id' => 'users#show'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   
   resources :users
-  resources :tasks,           only: [:create,:edit, :destroy]
+  resources :tasks,           only: [:create,:edit, :destroy, :update]
   resources :tags,            only: [:create, :destroy]
-  resources :priorities,      only: [:create, :destroy]
-  
+  resources :priorities,      only: [:create, :destroy] 
 end
