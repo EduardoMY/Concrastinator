@@ -1,8 +1,8 @@
 class Task < ActiveRecord::Base
   belongs_to :priority
-  belongs_to :tag
   belongs_to :user
   has_many :task_tags
+  has_many :tag, through: :task_tags
   default_scope -> { joins(:priority).order('priorities.rank DESC') }
   validates :user_id, presence: true
   validates :tag_id, presence: true
@@ -21,4 +21,30 @@ def self.search(query)
   where("tasks.title like ? or tasks.content like ?", "%#{query}%", "%#{query}%") 
 end
 
+end
+=begin
+  
+
+=begin
+
+# models/movie.rb
+class Movie < ActiveRecord::Base
+  has_many :showtimes
+  has_many :theatres, through: :showtimes
+end
+
+# models/theatre.rb
+class Theatre < ActiveRecord::Base
+  has_many :showtimes
+  has_many :movies, through: :showtimes
+end
+
+# models/showtime.rb
+class ShowTime < ActiveRecord::Base
+  belongs_to :movie
+  belongs_to :theatre
+end 
+  
+=end
+  
 end
