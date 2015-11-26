@@ -15,13 +15,23 @@
                     <li class="active">
                       <h4>Tags</h4>
                       </li>
+                      <section class="tag_show">
+                        <%@user.tasks.group(:tag_id).each do |f|%>
+                          <%= render f.tag %>
+                        <%end%>
+                      </section> 
+
                       <section class="tag_form">
                         <%= render 'shared/tag_form' %>
                       </section> 
                     <li>
-                      <h4>Priorities</h4>
-                      <%#for do |p|%>
-                      <%#end%> 
+                      <h4>Priorities</h4>                      
+                      <section class="priority_show">
+                        <%@user.tasks.group(:priority_id).each do |f|%>
+                          <%= render f.priority %>
+                        <%end%>
+                      </section> 
+
                     </li>
                     <li>
                      <section class="priority_form">
