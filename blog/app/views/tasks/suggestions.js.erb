@@ -1,3 +1,11 @@
+//Empty the div if it's not empty
+if( $.trim( $('#google_task_<%=@task.id%>').html() ).length ) {
+	$('#google_task_<%=@task.id%>').empty();
+	//alert('Hola');
+}
+else { //Appear the content
+
+	//Do all the search stuff
 function gcseCallback() {
   if (document.readyState != 'complete')
     return google.setOnLoadCallback(gcseCallback, true);
@@ -19,3 +27,4 @@ window.__gcse = {
   var s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(gcse, s);
 })();
+}
