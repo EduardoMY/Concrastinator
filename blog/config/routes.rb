@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'activity' => 'users#show'
   get 'signup' => 'users#new'
   
+  get 'edit' => 'users#edit'
+  
   get 'index' => 'welcome#index'
   get    'login'   => 'sessions#new'
   get   '/tasks/:id' => 'users#show'
