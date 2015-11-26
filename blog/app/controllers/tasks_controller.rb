@@ -1,12 +1,14 @@
 class TasksController < ApplicationController
 
 	before_action :logged_in_user, only: [:create, :destroy]
-  before_action :set_task, only: [:destroy, :update, :edit]
+  before_action :set_task, only: [:destroy, :update, :edit, :suggestions]
 
-  def show
-   
+  def show   
   end
 
+  def suggestions
+  end
+  
   def create
     @task = current_user.tasks.build(task_params)
     if @task.save

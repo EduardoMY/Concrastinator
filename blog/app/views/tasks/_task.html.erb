@@ -9,7 +9,7 @@
     <table>
       <tr>
         <td>
-          <%= link_to 'Edit', edit_task_path(task.id), remote:true, :class => 'btn btn-sm btn-info' %>
+          <%= link_to 'Edit', edit_task_path(task), remote:true, :class => 'btn btn-sm btn-info' %>
         </td> <!-- edit_task_path(task.id) , remote: true-->
         <td>
           <h4><strong><%= task.title %></strong></h4> <strong><%=isExpired ? 'Expired: ' : 'Due in:' %> </strong> 
@@ -19,13 +19,14 @@
             <%= link_to 'Delete', task_path(task), :method => :delete, data: {confirm: "Delete Task "}, :class => 'btn btn-sm btn-danger'%> 
         </td>
         <td>
-          <%= link_to 'Suggestions','#example' , :class => 'btn btn-sm btn-default'%>
+          <%= link_to('Suggestions', suggestions_task_path(task), :class => 'btn btn-sm btn-default', method: :post, remote: true) %>
         </td>
       </tr>
     </table>
     <%else %>
       <h4><strong><%= task.title %></strong></h4> <strong><%=isExpired ? 'Expired: ' : 'Due in:' %> </strong> 
           <%= time_ago_in_words(task.due_date.to_formatted_s(:db)) %>
+          <%= link_to 'Delete', task_path(task), :method => :delete, data: {confirm: "Delete Task "}, :class => 'btn btn-sm btn-danger'%>
     <%end%>
   </div>
   <div class="panel-body" style="<%= isExpired ? 'background-color:#C8C8C8;' : ''%>">
@@ -35,3 +36,4 @@
     <strong>Priority:</strong> <%= task.priority.title %>, <strong>Tags:</strong> <%= task.tag.title %>. 
   </div>
 </div>
+<div id="google_task_<%=task.id%>"> </div>
