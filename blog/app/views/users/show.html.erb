@@ -4,7 +4,8 @@
             <!-- sidebar Left -->
             <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
               	<ul class="nav">
-                  <li><h1><%= @user.name %></h1></li>
+                  <li><h1><%= @user.name %></h1></li> 
+                  <li><%= link_to "SETTINGS", edit_user_path(current_user) %></li>
               	</ul>
                   <br>
 		              <ul class="nav">
