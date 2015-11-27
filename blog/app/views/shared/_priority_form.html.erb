@@ -1,6 +1,6 @@
 <%= form_for(Priority.new) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
+  <div class="input-group input-group-sm">
   	<%= f.text_field :title, placeholder: "New priority...", class:'form-control' %>
     <%= f.number_field :rank, in: 1..5, step: 1, placeholder: "1", class:'form-control'%>
   </div>

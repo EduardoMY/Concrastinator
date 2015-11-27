@@ -2,10 +2,10 @@
 <%= form_for(Task.new) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="panel-heading">
-  <h1>Create a new Task! </h1>
+  <h1>Create a new task </h1>
   </div>
   <div class="panel-body">
-  <div class="form-group">
+  <div class="input-group">
     <div class="col-md-6">
   	 <%= f.text_area :title, placeholder: "New task..." , class: 'form-control'%>
     </div>
@@ -14,12 +14,12 @@
     </div>
     </div>
     <br>
-    <div class="form-group">
+    <div class="input-group">
     <%= f.datetime_select :due_date, {:ampm => true, :order => [:day, :month, :year], :default => Time.now.beginning_of_hour().advance(:hours => 1), :discard_minute => true} ,{:class=>'form-control'} %>
     <%#= f.text_field :due_date, class: "show_calendar" %>
     </div>
     <br>
-    <div class="form-group">
+    <div class="input-group">
     <div class= "col-md-6">
     <strong>Priority: </strong>
     <%= f.collection_select(:priority_id, Priority.where(:user_id => current_user.id), :id, :title,{} ,{:class=>'form-control'}) %>
