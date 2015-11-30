@@ -1,0 +1,3 @@
+$('#dialog').modal('toggle');
+$('#tasks_amount').html('Tasks (<%= current_user.tasks.where('due_date > ?', Time.now.to_formatted_s(:db)).count%>)');
+$('#tasks').append('<%= j render (@task) %>');

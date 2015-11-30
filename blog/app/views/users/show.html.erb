@@ -5,7 +5,7 @@
             <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
               	<ul class="nav">
                   <li><h1><%= @user.name %></h1></li> 
-                  <li><%= link_to "SETTINGS", edit_user_path(current_user) %></li>
+                  <li><%= link_to "SETTINGS",edit_user_path(current_user) %></li>
               	</ul>
                   <br>
 		              <ul class="nav">
@@ -91,17 +91,10 @@
               
                 <div class="padding">
                     <div class="full col-md-12">
-
-                        <!-- content -->                      
-                        <%# if logged_in? %>
-                          <div class="row">
-                              <%= render 'shared/task_form' %>
-                          </div>
-                        <%# end %>
                         <div class="col-md-12">
+                          <h3><%= link_to "+", new_task_path, remote: true,:class => 'btn btn-sm btn-info' %> <span id="tasks_amount">Tasks (<%= @tasksA.count %>) </span></h3>
                           <% if @user.tasks.any? %>
-                            <h3>Tasks (<%= @tasksA.count %>)</h3>
-                            <ol class="tasks">
+                            <ol class="tasks"id="tasks">
                               <%= render @tasksA %>
                             </ol>
                             <br>
