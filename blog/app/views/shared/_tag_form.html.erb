@@ -1,7 +1,7 @@
-<%= form_for(Tag.new) do |f| %>
+<%= form_for(Tag.new, :html=> {class: "form-inline"}) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
   	<%= f.text_field :title, placeholder: "New tag...",class:'form-control input-sm'%>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
+  <%#= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
