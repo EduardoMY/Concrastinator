@@ -21,4 +21,12 @@ def self.search(query)
   where("tasks.title like ? or tasks.content like ?", "%#{query}%", "%#{query}%") 
 end
 
+def self.searchByTags(tags)
+  where("tasks.tag_id IN (?)", tags)
+end
+
+def self.searchByPriorities(priorities)
+  where('tasks.priority_id in (?)', priorities)
+end
+
 end

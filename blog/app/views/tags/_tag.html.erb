@@ -1,3 +1,1 @@
-<div class="checkbox">
-  <label><input type="checkbox" value=""><%=tag.title%></label>
-</div>
+<li><%= check_box_tag 'tags[]', tag.id%> <%= tag.title %> </li>

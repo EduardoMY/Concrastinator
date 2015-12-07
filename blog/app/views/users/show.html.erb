@@ -24,8 +24,14 @@
                           </div>
                           <div id="collapseTags" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTags">
                             <div class="panel-body">
+                              <%= form_tag @user do %>
                               <% @user.tasks.group(:tag_id).each do |f| %>
+                              <ul>
                                 <%= render f.tag %>
+                              </ul>
+                                <%end%>
+                                <%= submit_tag 'Submit'%>
+
                               <%end%>
                             </div>
                           </div>
@@ -58,8 +64,13 @@
                           </div>
                           <div id="collapsePriorities" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
+                              <%= form_tag @user do%>
                               <%@user.tasks.group(:priority_id).each do |f|%>
+                                <ul>
                                 <%= render f.priority %>
+                                </ul>
+                                <%end%>
+                                <%= submit_tag 'Submit'%>
                               <%end%>
                             </div>
                           </div>

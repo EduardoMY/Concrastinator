@@ -9,6 +9,12 @@ class UsersController < ApplicationController
       elsif params[:q]
         @tasksA= @user.tasks.paginate(page: params[:page]).search(params[:q]).where('due_date > ?', Time.now.to_formatted_s(:db))
         @tasksP= nil
+      elsif params[:tags]
+        @tasksA=@user.tasks.paginate(page: params[:page]).searchByTags(params[:tags]).where('due_date > ?', Time.now.to_formatted_s(:db))
+        @tasksP=nil
+      elsif params[:priorities]
+        @tasksA= @user.tasks.paginate(page: params[:page]).searchByPriorities(params[:priorities]).where('due_date > ?', Time.now.to_formatted_s(:db))
+        @tasksP=nil
       else
         @tasksA = @user.tasks.all.paginate(page: params[:page]).where('due_date > ?', Time.now.to_formatted_s(:db))
         @tasksP = @user.tasks.all.paginate(page: params[:page]).where('due_date < ?', Time.now.to_formatted_s(:db))
