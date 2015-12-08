@@ -145,6 +145,7 @@
                 <!-- /top nav -->
               
                 <div class="padding">
+                <br>
                         <div class="col-md-12">
                           <h3><%= link_to "+", new_task_path, remote: true,:class => 'btn btn-sm btn-info' %> <span id="tasks_amount">Tasks (<%= @tasksA.count %>) </span></h3>
                           <% if @user.tasks.any? %>
