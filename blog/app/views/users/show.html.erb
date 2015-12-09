@@ -13,8 +13,9 @@
                   <ul class="nav hidden-xs" id="lg-menu">
                     <li class="active">
                       <!--Aqui empieza -->
+                      <br>
                       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
+                        <div class="">
                           <div class="panel-heading" role="tab" id="headingTags">
                             <h4 class="panel-title">
                               <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTags" aria-expanded="true" aria-controls="collapseTags">
@@ -26,10 +27,9 @@
                             <div class="panel-body">
                               <%= form_tag @user do %>
                               <% @user.tasks.group(:tag_id).each do |f| %>
-                              <ul>
-                                <%= render f.tag %>
-                              </ul>
+                                  <%= render f.tag %>
                                 <%end%>
+                                <br>
                                 <%= submit_tag 'Submit'%>
 
                               <%end%>
@@ -53,8 +53,9 @@
                       </div> 
                     <li>
                     <!--Aqui empieza -->
+                    <br>
                       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
+                        <div class="">
                           <div class="panel-heading" role="tab" id="headingPriorities">
                             <h4 class="panel-title">
                               <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePriorities" aria-expanded="true" aria-controls="collapsePriorities">
@@ -66,10 +67,9 @@
                             <div class="panel-body">
                               <%= form_tag @user do%>
                               <%@user.tasks.group(:priority_id).each do |f|%>
-                                <ul>
-                                <%= render f.priority %>
-                                </ul>
+                                  <%= render f.priority %>
                                 <%end%>
+                                <br>
                                 <%= submit_tag 'Submit'%>
                               <%end%>
                             </div>
@@ -127,7 +127,7 @@
                         <%= text_field_tag(:q,"" , class:'form-control', placeholder: 'Search a task...') %>
                         <div class="input-group-btn">
                           <%= button_tag(type:'submit', class:'btn btn-default') do %>
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"> </span>
+                            <i class="glyphicon glyphicon-level-up"> Search</i>
                           <%end%>
                         </div>
                       </div>

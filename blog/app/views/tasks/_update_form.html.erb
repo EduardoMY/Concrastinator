@@ -12,10 +12,12 @@
     <strong>Priority: </strong>
     <%= f.collection_select(:priority_id, Priority.where(:user_id => current_user.id), :id, :title) %>
     <strong>Tag:</strong> 
-    <%= f.collection_select(:tag_id, Tag.where(:user_id => current_user.id), :id, :title) %>
+    <%= f.collection_select(:tag_id, Tag.where(:user_id => current_user.id), :id, :title) %><br><br>
     <%= f.submit @task.new_record? ? "New Task": "Update Task", class: "btn btn-primary" %>
-    <% end %>
+  <% end %> 
   </div>
+  <!--
   <div class="panel-footer">
   </div>
+  -->
 </div>
