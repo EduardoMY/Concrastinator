@@ -46,6 +46,7 @@ class UsersController < ApplicationController
         @tag.save
         @priority = Priority.new(:title => "Normal", :rank => "3", :user_id => @user.id)
         @priority.save
+        UserMailer.new_email(current_user).deliver_now
         redirect_to @user
       else
         render 'new'

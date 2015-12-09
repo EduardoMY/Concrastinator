@@ -14,6 +14,7 @@ class TasksController < ApplicationController
       if @task.save
         format.json { head :no_content }
         format.js
+        UserMailer.new_task_email(current_user, @task).deliver_now
       else
         format.json { render json: @task.errors.full_messages, 
                             status: :unprocessable_entity }
