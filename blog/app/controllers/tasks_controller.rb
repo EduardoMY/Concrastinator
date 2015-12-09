@@ -53,7 +53,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    UserMailer.Notification_email(current_user).deliver_now
+    #UserMailer.Notification_email(current_user).deliver_now
     redirect_to current_user
   end
  
